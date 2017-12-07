@@ -5,6 +5,7 @@
 Generate random data about the weather in different locations.
 
 ## Setup
+In order to build and execute this application is necessary to [install Maven](https://maven.apache.org/install.html).
 ```
 Build => mvn clean install
 Test => mvn test 
