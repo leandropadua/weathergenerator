@@ -5,7 +5,7 @@ import java.util.Random;
 import au.com.commbank.weathergenerator.Position;
 
 /**
- * This class generates 
+ * This class generates a random position on Earth
  * @author leandropadua
  *
  */
