@@ -12,7 +12,7 @@ public class RandomDateGeneratorTest {
 
 	@Test
 	public void shouldGenerateDateForLastYear(){
-		Date generated = RandomDateGenerator.generate();
+		Date generated = RandomDateGenerator.generateForLastYear();
 		Calendar cal = Calendar.getInstance();
 		Date today = cal.getTime();
 		cal.add(Calendar.YEAR, -1);

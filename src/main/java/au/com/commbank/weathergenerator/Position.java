@@ -1,5 +1,12 @@
 package au.com.commbank.weathergenerator;
 
+/**
+ * This class represents a position on Earth described using
+ * latitude, longitude in degrees and elevation in meters.
+ * 
+ * @author leandropadua
+ *
+ */
 public class Position {
 	private Double latitude;
 	private Double longitude;
