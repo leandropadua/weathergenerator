@@ -1,8 +1,14 @@
 package au.com.commbank.weathergenerator;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Date;
 
+import au.com.commbank.weathergenerator.forecast.WeatherForecaster;
+import au.com.commbank.weathergenerator.localiser.Localiser;
 import au.com.commbank.weathergenerator.util.Configuration;
+import au.com.commbank.weathergenerator.util.RandomDateGenerator;
+import au.com.commbank.weathergenerator.util.RandomPositionGenerator;
 
 /**
  * Weather Generator
@@ -19,6 +25,14 @@ public class App
     public static void main( String[] args )
     {
     	loadConfiguration();
+    	WeatherForecaster weatherForecaster = new WeatherForecaster();
+    	for(int i = 0; i < configuration.getNumberOfLocations(); i++){
+    		Date date = RandomDateGenerator.generateForLastYear();
+    		Position position = RandomPositionGenerator.generatePosition();
+    		Weather weather = weatherForecaster.forecast(position, date);
+    		weather.setLocation(Localiser.localise(position));
+    		System.out.println(weather);
+    	}
     }
     
     private static Configuration loadConfiguration() {
@@ -33,4 +47,5 @@ public class App
 		}
 		return configuration;
     }
+    
 }

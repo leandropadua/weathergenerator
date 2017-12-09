@@ -59,4 +59,9 @@ public class Weather {
 				humidity);
 	}
 
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 }
