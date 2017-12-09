@@ -14,17 +14,23 @@ import au.com.commbank.weathergenerator.util.Configuration;
 public class App 
 {
 	private static final String CONFIG_FILE = Paths.get(System.getProperty("user.dir"),"config.json").toString();
+	private static Configuration configuration;
 	
     public static void main( String[] args )
     {
-    	// Load configuration file
-    	Configuration configuration = new Configuration();
+    	loadConfiguration();
+    }
+    
+    private static Configuration loadConfiguration() {
+    	if(configuration != null) {
+    		return configuration;
+    	}
     	try {
-			configuration = new Configuration(CONFIG_FILE);
+    		configuration = new Configuration(CONFIG_FILE);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println("Error on config.json. Using default configuration.");
+			System.out.println("[Error] Using default configuration due to failure on loading config. " + e.getMessage());
+			configuration = new Configuration();
 		}
-    	System.out.println(configuration.getNumberOfLocations());
+		return configuration;
     }
 }
