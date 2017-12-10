@@ -24,8 +24,8 @@ public class WeatherForecaster {
 	 */
 	public Weather forecast(Position position, Date date) {
 		Double temperature = TemperaturePredictor.predict(position, date);
-		Double pressure = PressurePredictor.predict(position, temperature);
-		int humidity = HumidityPredictor.predict(position, pressure);
+		double pressure = PressurePredictor.predict(position.getElevation());
+		int humidity = HumidityPredictor.predict(pressure, temperature);
 		Condition condition = ConditionPredictor.predict(humidity, temperature);
 		return new Weather("",position,date,condition,temperature,pressure,humidity);
 	}

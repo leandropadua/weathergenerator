@@ -6,7 +6,7 @@ public class Localiser {
 
 	public static String localise(Position position) {
 		// TODO Auto-generated method stub
-		return "foo bar";
+		return "";
 	}
 
 }
