@@ -21,13 +21,15 @@ public class TemperaturePredictor {
 	 * @param date
 	 * @return temperature
 	 */
-	public static double predict(Position position, Date date) {
+	public static double predict(Position position, Date date, boolean useRandomFactor) {
 
 		double temperature = EarthParameters.AVERAGE_TEMPERATURE_AT_ZERO_LATITUDE;
 		
-		// random factor between 0.8 to 1.2 to include other factors
-		double randomFactor = 0.8 + (1.2 - 0.8) * new Random().nextDouble();
-		temperature *= randomFactor;
+		if(useRandomFactor){
+			// random factor between 0.8 to 1.2 to include other factors
+			double randomFactor = 0.8 + (1.2 - 0.8) * new Random().nextDouble();
+			temperature *= randomFactor;
+		}
 		
 		double seasonFactor = getSeasonFactor(position.getLatitude(), date);
 		temperature *= seasonFactor;
@@ -43,6 +45,10 @@ public class TemperaturePredictor {
 		
 		return temperature;
 	}
+	
+	public static double predict(Position position, Date date) {
+		return predict(position, date, true);
+	}
 
 	/**
 	 * Drop temperature when is night and increase during the day
@@ -52,9 +58,9 @@ public class TemperaturePredictor {
 	private static double getTimeOfDayFactor(Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		int hour = cal.get(Calendar.HOUR);
+		int hour = cal.get(Calendar.HOUR_OF_DAY);
 		
-		if(11 > hour && hour < 14) {
+		if(hour > 11 && hour < 14) {
 			return 1.2;
 		}
 		

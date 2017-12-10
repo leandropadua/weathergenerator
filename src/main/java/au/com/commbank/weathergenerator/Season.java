@@ -14,14 +14,15 @@ public enum Season {
 		SUMMER
 	};
 	
-	private static Season getOpposite(Season season) {
+	public static Season getOpposite(Season season) {
+		Season opposite = season;
 		switch(season){
-			case AUTUMN: return SPRING;
-			case SPRING: return AUTUMN;
-			case SUMMER: return WINTER;
-			case WINTER: return SUMMER;
+			case AUTUMN: opposite = SPRING; break;
+			case SPRING: opposite = AUTUMN; break;
+			case SUMMER: opposite = WINTER; break;
+			case WINTER: opposite = SUMMER; break;
 		}
-		return season;
+		return opposite;
 	}
 	
 	public static Season getSeason(double latitude, Date date) {
