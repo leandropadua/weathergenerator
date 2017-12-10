@@ -27,6 +27,10 @@ public class App
     public static void main( String[] args )
     {
     	loadConfiguration();
+    	if(configuration.getNumberOfLocations() > 1000) {
+    		System.out.println("Please configure the number of locations to be less than 1000.");
+    		return;
+    	}
     	WeatherForecaster weatherForecaster = new WeatherForecaster();
     	for(int i = 0; i < configuration.getNumberOfLocations(); i++){
     		Date date = RandomDateGenerator.generateForLastYear();
