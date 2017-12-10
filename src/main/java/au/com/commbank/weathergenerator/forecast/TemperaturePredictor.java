@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
-import au.com.commbank.weathergenerator.EarthParameters;
+import au.com.commbank.weathergenerator.PlanetParameters;
 import au.com.commbank.weathergenerator.Position;
 import au.com.commbank.weathergenerator.Season;
 
@@ -23,7 +23,7 @@ public class TemperaturePredictor {
 	 */
 	public static double predict(Position position, Date date, boolean useRandomFactor) {
 
-		double temperature = EarthParameters.AVERAGE_TEMPERATURE_AT_ZERO_LATITUDE;
+		double temperature = PlanetParameters.AVERAGE_TEMPERATURE_AT_ZERO_LATITUDE;
 		
 		if(useRandomFactor){
 			// random factor between 0.8 to 1.2 to include other factors

@@ -3,6 +3,11 @@ package au.com.commbank.weathergenerator;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Weather Season
+ * @author leandropadua
+ *
+ */
 public enum Season {
 	WINTER,SPRING,SUMMER,AUTUMN;
 
@@ -14,6 +19,11 @@ public enum Season {
 		SUMMER
 	};
 	
+	/**
+	 * Get the opposite weather season
+	 * @param season
+	 * @return
+	 */
 	public static Season getOpposite(Season season) {
 		Season opposite = season;
 		switch(season){
@@ -25,6 +35,12 @@ public enum Season {
 		return opposite;
 	}
 	
+	/**
+	 * Find the weather season using a month rouding strategy as Australia
+	 * @param latitude
+	 * @param date
+	 * @return
+	 */
 	public static Season getSeason(double latitude, Date date) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
