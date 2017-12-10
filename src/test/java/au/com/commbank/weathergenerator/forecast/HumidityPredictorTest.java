@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import au.com.commbank.weathergenerator.EarthParameters;
+import au.com.commbank.weathergenerator.PlanetParameters;
 
 public class HumidityPredictorTest {
 
@@ -13,14 +13,14 @@ public class HumidityPredictorTest {
 		double humidityHighTemperature = 0;
 		for(int i = 0; i < 100; i ++) {
 		    double temperature = 30;
-			humidityHighTemperature += HumidityPredictor.predict(EarthParameters.PRESSURE_AT_SEA_LEVEL, temperature);
+			humidityHighTemperature += HumidityPredictor.predict(PlanetParameters.PRESSURE_AT_SEA_LEVEL, temperature);
 		};
 		humidityHighTemperature /= 100;
 		
 		double humidityLowTemperature = 0;
 		for(int i = 0; i < 100; i ++) {
 		    double temperature = 10;
-		    humidityLowTemperature += HumidityPredictor.predict(EarthParameters.PRESSURE_AT_SEA_LEVEL, temperature);
+		    humidityLowTemperature += HumidityPredictor.predict(PlanetParameters.PRESSURE_AT_SEA_LEVEL, temperature);
 		};
 		humidityLowTemperature /= 100;
 		

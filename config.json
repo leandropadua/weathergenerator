@@ -1,3 +1,4 @@
 {
-	"numberOfLocations":"10"
+	"numberOfLocations":"10",
+	"useNamedLocations": "true"
 }

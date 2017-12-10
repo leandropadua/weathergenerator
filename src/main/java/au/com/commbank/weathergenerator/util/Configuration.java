@@ -16,9 +16,14 @@ import org.json.JSONObject;
 public class Configuration {
 
 	private int numberOfLocations;
+	private boolean useNamedLocations;
 	
 	public int getNumberOfLocations() {
 		return numberOfLocations;
+	}
+
+	public boolean isUseNamedLocations() {
+		return useNamedLocations;
 	}
 
 	/**
@@ -41,14 +46,14 @@ public class Configuration {
 	
 	private static String readFile(String path, Charset encoding) throws IOException 
 	{
-	  byte[] encoded = Files.readAllBytes(Paths.get(path));
-	  return new String(encoded, encoding);
+	  return new String(Files.readAllBytes(Paths.get(path)), encoding);
 	}
 	
 	private void loadConfig(String config) throws NumberFormatException {
 		JSONObject jsonConfig = new JSONObject(config);
 		String numberOfLocations = jsonConfig.getString("numberOfLocations");
 		this.numberOfLocations = Integer.parseInt(numberOfLocations);
+		this.useNamedLocations = jsonConfig.getBoolean("useNamedLocations");
 	}
 	
 }

@@ -1,6 +1,6 @@
 package au.com.commbank.weathergenerator.forecast;
 
-import au.com.commbank.weathergenerator.EarthParameters;
+import au.com.commbank.weathergenerator.PlanetParameters;
 
 public class HumidityPredictor {
 
@@ -10,7 +10,7 @@ public class HumidityPredictor {
 		double humidity = 80*Math.random();
 		
 		// humidity is considered here to be inverse with pressure
-		humidity *= 1 + (EarthParameters.PRESSURE_AT_SEA_LEVEL - pressure)/EarthParameters.PRESSURE_AT_SEA_LEVEL;
+		humidity *= 1 + (PlanetParameters.PRESSURE_AT_SEA_LEVEL - pressure)/PlanetParameters.PRESSURE_AT_SEA_LEVEL;
 
 		// Approximating humidity to add an exponential factor for temperature
 		humidity += Math.exp(0.1*temperature);
