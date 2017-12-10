@@ -1,8 +1,8 @@
 package au.com.commbank.weathergenerator;
 
-public final class EarthParameters {
+public final class PlanetParameters {
 
-	private EarthParameters(){}
+	private PlanetParameters(){}
 	
 	public static final double PRESSURE_AT_SEA_LEVEL = 1013; //hPa
 	public static final double PRESSURE_AT_MAX_ELEVATION = 337; //hPa

@@ -1,6 +1,6 @@
 package au.com.commbank.weathergenerator.forecast;
 
-import au.com.commbank.weathergenerator.EarthParameters;
+import au.com.commbank.weathergenerator.PlanetParameters;
 
 /**
  * This class predict the atmospheric pressure based on other factors
@@ -20,8 +20,8 @@ public class PressurePredictor {
 	public static double predict(int elevation) {
 		// Assuming linear
 		double pressure = elevation 
-				* (EarthParameters.PRESSURE_AT_MAX_ELEVATION - EarthParameters.PRESSURE_AT_SEA_LEVEL)/EarthParameters.MAX_ELEVATION
-				+ EarthParameters.PRESSURE_AT_SEA_LEVEL;
+				* (PlanetParameters.PRESSURE_AT_MAX_ELEVATION - PlanetParameters.PRESSURE_AT_SEA_LEVEL)/PlanetParameters.MAX_ELEVATION
+				+ PlanetParameters.PRESSURE_AT_SEA_LEVEL;
 		return pressure;
 	}
 

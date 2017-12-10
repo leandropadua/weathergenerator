@@ -4,17 +4,17 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import au.com.commbank.weathergenerator.EarthParameters;
+import au.com.commbank.weathergenerator.PlanetParameters;
 
 public class PressurePredictorTest {
 
 	@Test
 	public void shouldBePreciseAtSeaLevel(){
-		assertTrue(Math.abs(EarthParameters.PRESSURE_AT_SEA_LEVEL - PressurePredictor.predict(0)) < 0.01);
+		assertTrue(Math.abs(PlanetParameters.PRESSURE_AT_SEA_LEVEL - PressurePredictor.predict(0)) < 0.01);
 	}
 	
 	@Test
 	public void shouldBeLowerAtHighElevation(){
-		assertTrue(Math.abs(EarthParameters.PRESSURE_AT_MAX_ELEVATION - PressurePredictor.predict(EarthParameters.MAX_ELEVATION)) < 0.01);
+		assertTrue(Math.abs(PlanetParameters.PRESSURE_AT_MAX_ELEVATION - PressurePredictor.predict(PlanetParameters.MAX_ELEVATION)) < 0.01);
 	}
 }

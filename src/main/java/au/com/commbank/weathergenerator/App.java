@@ -40,28 +40,32 @@ public class App
     	}
     }
     
-    private static void loadLocations() {
+    public static boolean loadLocations() {
     	if(locationGenerator != null) {
-    		return;
+    		return true;
     	}
     	try {
 			locationGenerator = new LocationGenerator(LOCATIONS_FILE);
 		} catch (IOException e) {
 			System.err.println("Using default location names due to failure on loading locations. " + e.getMessage());
 			locationGenerator = new LocationGenerator();
+			return false;
 		}
+    	return true;
 	}
 
-	private static void loadConfiguration() {
+	public static boolean loadConfiguration() {
     	if(configuration != null) {
-    		return;
+    		return true;
     	}
     	try {
     		configuration = new Configuration(CONFIG_FILE);
 		} catch (Exception e) {
 			System.err.println("Using default configuration due to failure on loading config. " + e.getMessage());
 			configuration = new Configuration();
+			return false;
 		}
+    	return true;
     }
     
 }
