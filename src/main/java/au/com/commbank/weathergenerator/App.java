@@ -44,6 +44,10 @@ public class App
     	}
     }
     
+    /**
+     * Try to Load Location, print error to std err in case of problem and load default
+     * @return the status of the loading of the file
+     */
     public static boolean loadLocations() {
     	if(locationGenerator != null) {
     		return true;
@@ -58,6 +62,10 @@ public class App
     	return true;
 	}
 
+    /**
+     * Try to Load Configuration, print error to std err in case of problem and load default
+     * @return the status of the loading of the file
+     */
 	public static boolean loadConfiguration() {
     	if(configuration != null) {
     		return true;

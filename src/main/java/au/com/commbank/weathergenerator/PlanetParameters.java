@@ -1,5 +1,10 @@
 package au.com.commbank.weathergenerator;
 
+/**
+ * Class that contains planet parameters.
+ * @author leandropadua
+ *
+ */
 public final class PlanetParameters {
 
 	private PlanetParameters(){}
