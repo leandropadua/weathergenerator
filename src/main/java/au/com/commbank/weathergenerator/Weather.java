@@ -59,4 +59,46 @@ public class Weather {
 				humidity);
 	}
 
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+	public String getLocation() {
+		return location;
+	}
+
+
+	public Position getPosition() {
+		return position;
+	}
+
+
+	public Date getDatetime() {
+		return datetime;
+	}
+
+
+	public Condition getCondition() {
+		return condition;
+	}
+
+
+	public Double getTemperature() {
+		return temperature;
+	}
+
+
+	public Double getPressure() {
+		return pressure;
+	}
+
+
+	public int getHumidity() {
+		return humidity;
+	}
+	
+	
+
 }
