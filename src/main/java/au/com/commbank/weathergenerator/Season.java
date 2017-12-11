@@ -31,12 +31,13 @@ public enum Season {
 			case SPRING: opposite = AUTUMN; break;
 			case SUMMER: opposite = WINTER; break;
 			case WINTER: opposite = SUMMER; break;
+			default:     opposite = season; break;
 		}
 		return opposite;
 	}
 	
 	/**
-	 * Find the weather season using a month rouding strategy as Australia
+	 * Find the weather season using a month rounding strategy as Australia
 	 * @param latitude
 	 * @param date
 	 * @return

@@ -52,6 +52,8 @@ public class TemperaturePredictor {
 
 	/**
 	 * Drop temperature when is night and increase during the day
+	 * The drop is higher hour close to midnight and the increase
+	 * is higher when is close to midday
 	 * @param date
 	 * @return factor to multiply temperature
 	 */
@@ -59,24 +61,25 @@ public class TemperaturePredictor {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		int hour = cal.get(Calendar.HOUR_OF_DAY);
+		double timeOfDayFactor = 1.0;
 		
 		if(hour > 11 && hour < 14) {
-			return 1.2;
+			timeOfDayFactor = 1.2;
 		}
 		
 		if (hour < 5 || hour > 23) {
-			return 0.8;
+			timeOfDayFactor = 0.8;
 		}
 		
 		if(hour > 5 && hour < 7) {
-			return 0.9;
+			timeOfDayFactor = 0.9;
 		}
 		
 		if(hour > 14 && hour < 16) {
-			return 1.1;
+			timeOfDayFactor = 1.1;
 		}
 		
-		return 1;
+		return timeOfDayFactor;
 	}
 
 	/**
@@ -99,12 +102,12 @@ public class TemperaturePredictor {
 	 */
 	private static double getLatitudeFactor(double latitude) {
 		double drop = 0;
-		latitude = Math.abs(latitude);
+		double positiveLatitude = Math.abs(latitude);
 		int dropFactor = 5;
 		
-		while(latitude > 0){
-			drop += Math.min(30.0,latitude)/dropFactor;
-			latitude -= 30;
+		while(positiveLatitude > 0){
+			drop += Math.min(30.0,positiveLatitude)/dropFactor;
+			positiveLatitude -= 30;
 			dropFactor -= dropFactor/2;
 		}
 		
