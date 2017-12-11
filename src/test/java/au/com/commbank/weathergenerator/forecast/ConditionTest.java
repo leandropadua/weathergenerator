@@ -9,23 +9,23 @@ import au.com.commbank.weathergenerator.Condition;
 public class ConditionTest {
 
 	@Test
-	public void shouldNotSnowInPositiveTemperatures(){
+	public void shouldNotSnowInPositiveTemperatures() {
 		assertTrue(ConditionPredictor.predict(0, 5) != Condition.SNOW);
 	}
-	
+
 	@Test
-	public void shouldRainWithHighHumidityAndPositiveTemperature(){
+	public void shouldRainWithHighHumidityAndPositiveTemperature() {
 		assertTrue(ConditionPredictor.predict(100, 10) == Condition.RAIN);
 	}
-	
+
 	@Test
-	public void shouldSnowWithHighHumidityAndLowTemperature(){
+	public void shouldSnowWithHighHumidityAndLowTemperature() {
 		assertTrue(ConditionPredictor.predict(100, -10) == Condition.SNOW);
 	}
-	
+
 	@Test
-	public void shouldBeSunnyWhenDryAndWarm(){
+	public void shouldBeSunnyWhenDryAndWarm() {
 		assertTrue(ConditionPredictor.predict(10, 30) == Condition.SUNNY);
 	}
-	
+
 }

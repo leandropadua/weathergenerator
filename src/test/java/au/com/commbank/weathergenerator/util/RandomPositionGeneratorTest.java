@@ -11,9 +11,9 @@ public class RandomPositionGeneratorTest {
 	private static final int MAX_LATITUDE = 90;
 	private static final int MAX_LONGITUDE = 180;
 	private static final int EVEREST_ELEVATION = 8848;
-	
+
 	@Test
-	public void shouldGenerateValidEarthPosition(){
+	public void shouldGenerateValidEarthPosition() {
 		Position randomPosition = RandomPositionGenerator.generatePosition();
 		assertTrue(randomPosition.getLatitude() < MAX_LATITUDE);
 		assertTrue(randomPosition.getLatitude() > -MAX_LATITUDE);
