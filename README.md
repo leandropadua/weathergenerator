@@ -6,12 +6,24 @@ The purpose of this App is to generate weather data that can be consumed by game
 
 For the current version, the data generated tries to simulate a planet that has similar weather conditions than Earth, but with different location names and continents. It's a planet called Searth (Simulated Earth).
 
-## Setup
-In order to build and execute this application is necessary to [install Maven](https://maven.apache.org/install.html).
+## Setup locally
+In order to build and execute this application locally is necessary to [install Maven](https://maven.apache.org/install.html).
 ```
 Build => mvn clean install
 Test => mvn test 
 Run => mvn exec:java -q
+```
+
+## Setup using docker
+In order to run using docker, you can run from the public image available:
+```
+docker run leandropadua/weathergenerator
+```
+
+Alternatively, you can build the image and run it after built
+```
+docker build . -t weathergenerator
+docker run weathergenerator
 ```
 
 ## Notes
