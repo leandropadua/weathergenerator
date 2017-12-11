@@ -11,7 +11,7 @@ import org.junit.Test;
 public class RandomDateGeneratorTest {
 
 	@Test
-	public void shouldGenerateDateForLastYear(){
+	public void shouldGenerateDateForLastYear() {
 		Date generated = RandomDateGenerator.generateForLastYear();
 		Calendar cal = Calendar.getInstance();
 		Date today = cal.getTime();
@@ -21,9 +21,9 @@ public class RandomDateGeneratorTest {
 		assertTrue(today.after(generated));
 		assertTrue(lastYear.before(generated));
 	}
-	
+
 	@Test
-	public void shouldGenerateInInterval(){
+	public void shouldGenerateInInterval() {
 		Date begin = Timestamp.valueOf("2015-12-23 05:02:12");
 		Date end = Timestamp.valueOf("2016-11-24 15:32:40");
 		Date generated = RandomDateGenerator.generate(begin, end);
