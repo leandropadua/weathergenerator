@@ -1,8 +1,8 @@
 package au.com.commbank.weathergenerator;
 
 /**
- * This class represents a position on Earth described using
- * latitude, longitude in degrees and elevation in meters.
+ * This class represents a position on Earth described using latitude, longitude
+ * in degrees and elevation in meters.
  * 
  * @author leandropadua
  *
@@ -22,9 +22,11 @@ public class Position {
 	public Double getLatitude() {
 		return latitude;
 	}
+
 	public Double getLongitude() {
 		return longitude;
 	}
+
 	public int getElevation() {
 		return elevation;
 	}

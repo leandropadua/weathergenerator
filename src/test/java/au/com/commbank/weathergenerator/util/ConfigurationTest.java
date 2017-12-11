@@ -11,15 +11,15 @@ import org.junit.Test;
 public class ConfigurationTest {
 
 	@Test
-	public void shouldParseNumberOfLocations() throws NumberFormatException, IOException{
+	public void shouldParseNumberOfLocations() throws NumberFormatException, IOException {
 		Path path = Paths.get(System.getProperty("user.dir"), "src", "test", "data", "config.json");
 		Configuration configuration = new Configuration(path.toString());
 		assertEquals(15, configuration.getNumberOfLocations());
 	}
-	
+
 	@Test
-	public void shouldReturnDefaultConfiguration(){
+	public void shouldReturnDefaultConfiguration() {
 		Configuration configuration = new Configuration("blah blah");
-    	assertEquals(10, configuration.getNumberOfLocations());
+		assertEquals(10, configuration.getNumberOfLocations());
 	}
 }

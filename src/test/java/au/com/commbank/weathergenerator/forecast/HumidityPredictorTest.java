@@ -9,21 +9,21 @@ import au.com.commbank.weathergenerator.PlanetParameters;
 public class HumidityPredictorTest {
 
 	@Test
-	public void shouldBeHigherInHighTemeratures(){
+	public void shouldBeHigherInHighTemeratures() {
 		double humidityHighTemperature = 0;
-		for(int i = 0; i < 100; i ++) {
-		    double temperature = 30;
+		for (int i = 0; i < 100; i++) {
+			double temperature = 30;
 			humidityHighTemperature += HumidityPredictor.predict(PlanetParameters.PRESSURE_AT_SEA_LEVEL, temperature);
 		}
 		humidityHighTemperature /= 100;
-		
+
 		double humidityLowTemperature = 0;
-		for(int i = 0; i < 100; i ++) {
-		    double temperature = 10;
-		    humidityLowTemperature += HumidityPredictor.predict(PlanetParameters.PRESSURE_AT_SEA_LEVEL, temperature);
+		for (int i = 0; i < 100; i++) {
+			double temperature = 10;
+			humidityLowTemperature += HumidityPredictor.predict(PlanetParameters.PRESSURE_AT_SEA_LEVEL, temperature);
 		}
 		humidityLowTemperature /= 100;
-		
+
 		assertTrue(humidityLowTemperature < humidityHighTemperature);
 	}
 }
