@@ -15,14 +15,14 @@ import org.json.JSONObject;
  */
 public class Configuration {
 
-	private int numberOfLocations;
-	private boolean useNamedLocations;
+	private int numberOfLocations = 10;
+	private boolean useNamedLocations = true;
 	
 	public int getNumberOfLocations() {
 		return numberOfLocations;
 	}
 
-	public boolean isUseNamedLocations() {
+	public boolean useNamedLocations() {
 		return useNamedLocations;
 	}
 
@@ -32,27 +32,24 @@ public class Configuration {
 	 * @throws IOException 
 	 * @throws NumberFormatException
 	 */
-	public Configuration(String filename) throws IOException, NumberFormatException {
-		String configContent = readFile(filename, StandardCharsets.UTF_8);
-		loadConfig(configContent);
+	public Configuration(String filename) throws NumberFormatException {
+		String configContent;
+		try {
+			configContent = readFile(filename, StandardCharsets.UTF_8);
+			loadConfig(configContent);
+		} catch (IOException e) {
+			System.err.println("Using default configuration due to failure on loading config.json: " + e.getMessage());
+		}
 	}
-	
-	/**
-	 * Create Configuration and set a default value for the properties.
-	 */
-	public Configuration(){
-		this.numberOfLocations = 10;
-	}
-	
+
 	private static String readFile(String path, Charset encoding) throws IOException 
 	{
 	  return new String(Files.readAllBytes(Paths.get(path)), encoding);
 	}
 	
-	private void loadConfig(String config) throws NumberFormatException {
+	private void loadConfig(String config) {
 		JSONObject jsonConfig = new JSONObject(config);
-		String numberOfLocations = jsonConfig.getString("numberOfLocations");
-		this.numberOfLocations = Integer.parseInt(numberOfLocations);
+		this.numberOfLocations = jsonConfig.getInt("numberOfLocations");
 		this.useNamedLocations = jsonConfig.getBoolean("useNamedLocations");
 	}
 	

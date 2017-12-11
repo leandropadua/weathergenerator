@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class LocationGenerator {
 	
-	private ArrayList<String> locations;
+	private ArrayList<String> locations = new ArrayList<String>();
 	private int counter = 0;
 
 	/**
@@ -18,15 +18,12 @@ public class LocationGenerator {
 	 * @param locationsFile File with locations at each line
 	 * @throws IOException
 	 */
-	public LocationGenerator(String locationsFile) throws IOException {
-		loadLocationsFromFile(locationsFile);
-	}
-
-	/**
-	 * Default generator will create names like Location N
-	 */
-	public LocationGenerator() {
-		locations = new ArrayList<String>();
+	public LocationGenerator(String locationsFile) {
+		try {
+			loadLocationsFromFile(locationsFile);
+		} catch (IOException e) {
+			System.err.println("Using default location names due to failure on loading locations from " + locationsFile + " : " + e.getMessage());
+		}
 	}
 
 	private void loadLocationsFromFile(String locationsFile) throws IOException {

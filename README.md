@@ -1,8 +1,8 @@
 # Weather Generator
 
-[![Build Status](https://travis-ci.org/leandropadua/weathergenerator.svg?branch=master)](https://travis-ci.org/leandropadua/weathergenerator) [![codecov](https://codecov.io/gh/leandropadua/weathergenerator/branch/master/graph/badge.svg)](https://codecov.io/gh/leandropadua/weathergenerator)
+[![Build Status](https://travis-ci.org/leandropadua/weathergenerator.svg?branch=master)](https://travis-ci.org/leandropadua/weathergenerator) [![codecov](https://codecov.io/gh/leandropadua/weathergenerator/branch/master/graph/badge.svg)](https://codecov.io/gh/leandropadua/weathergenerator) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/74bd1634532b4215b0504b9cf9116162)](https://www.codacy.com/app/leandropadua/weathergenerator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leandropadua/weathergenerator&amp;utm_campaign=Badge_Grade)
 
-The purpose of this App to generate weather data that can be consumed by games. All the generated data is printed on the standard output and errors are piped to error output.
+The purpose of this App is to generate weather data that can be consumed by games. All the generated data is printed on the standard output and errors are piped to error output.
 
 For the current version, the data generated tries to simulate a planet that has similar weather conditions than Earth, but with different location names and continents. It's a planet called Searth (Simulated Earth).
 

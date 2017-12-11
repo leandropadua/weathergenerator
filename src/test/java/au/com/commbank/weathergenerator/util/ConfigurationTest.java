@@ -19,10 +19,7 @@ public class ConfigurationTest {
 	
 	@Test
 	public void shouldReturnDefaultConfiguration(){
-    	Configuration configuration = new Configuration();
-    	try {
-			configuration = new Configuration("blah blah");
-		} catch (Exception e) { }
+		Configuration configuration = new Configuration("blah blah");
     	assertEquals(10, configuration.getNumberOfLocations());
 	}
 }
