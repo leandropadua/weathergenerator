@@ -12,13 +12,28 @@ import au.com.commbank.weathergenerator.util.Configuration;
  *
  */
 public class App {
+	
+	// Default configuration and location names file
 	private static final String CONFIG_FILE = Paths.get(System.getProperty("user.dir"), "config.json").toString();
 	private static final String LOCATIONS_FILE = Paths.get(System.getProperty("user.dir"), "data", "locations.txt")
 			.toString();
 
+	/**
+	 * Entry point
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		Configuration configuration = new Configuration(CONFIG_FILE);
-		WeatherGenerator weatherGenerator = configuration.useNamedLocations() ? new WeatherGenerator(LOCATIONS_FILE)
+		printWeatherData(CONFIG_FILE, LOCATIONS_FILE);
+	}
+	
+	/**
+	 * Print generated data according to configuration and locations file
+	 * @param configFile
+	 * @param locationsFile
+	 */
+	public static void printWeatherData(String configFile, String locationsFile) {
+		Configuration configuration = new Configuration(configFile);
+		WeatherGenerator weatherGenerator = configuration.useNamedLocations() ? new WeatherGenerator(locationsFile)
 				: new WeatherGenerator();
 
 		Weather[] weatherData = weatherGenerator.generate(configuration.getNumberOfLocations());
