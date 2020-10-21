@@ -17,7 +17,7 @@ Run => mvn exec:java -q
 ## Setup using docker
 In order to run using docker, you can run from the public image available:
 ```
-docker run leandropadua/weathergenerator
+docker run --rm -it leandropadua/weathergenerator
 ```
 
 Alternatively, you can build the image and run it after built
